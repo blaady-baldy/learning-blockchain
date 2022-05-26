@@ -1,9 +1,9 @@
-pragma solidity >=0.7.0 <0.9.0;
+pragma solidity ^0.6.0;
 
 contract SimpleStore{
     uint256 favNum;
     bool favBool;
-    string public favName = "Aryan";
+    string favName = "Aryan";
 
     struct People{
         uint256 num;
@@ -12,5 +12,11 @@ contract SimpleStore{
 
     People public person = People({ num:7, name:"Devansh"});
 
-    function store()
+    function store(uint256 _favNum) public{
+        favNum = _favNum;
+    }
+
+    function retrieve() public view returns(uint256){
+        return favNum;
+    }
 }
